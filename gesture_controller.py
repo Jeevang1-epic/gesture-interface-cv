@@ -3,12 +3,12 @@ import mediapipe as mp
 import math
 import pydirectinput
 
-# --- OPTIMIZATION SETTINGS ---
-# 1. REMOVE THE LAG (Crucial Step!)
+# OPTIMIZATION SETTINGS 
+
 pydirectinput.PAUSE = 0.0
 pydirectinput.FAILSAFE = True
 
-# 2. Setup MediaPipe
+# 2. i am going to Setup MediaPipe bellow
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 
@@ -51,7 +51,7 @@ with mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.5, m
                 
                 dist = math.hypot(x2 - x1, y2 - y1)
 
-                # --- OPTIMIZED CONTROLS ---
+                # OPTIMIZED CONTROLS 
                 # We check if action CHANGED to avoid spamming the console
                 if dist > 50: 
                     cv2.putText(image, "GAS", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
